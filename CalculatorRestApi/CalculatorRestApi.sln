@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorRestApi", "CalculatorRestApi\CalculatorRestApi.csproj", "{D98D6272-5AB3-4B7D-9207-51238EDFFE34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D98D6272-5AB3-4B7D-9207-51238EDFFE34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D98D6272-5AB3-4B7D-9207-51238EDFFE34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D98D6272-5AB3-4B7D-9207-51238EDFFE34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D98D6272-5AB3-4B7D-9207-51238EDFFE34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16E5338B-9FC8-4871-84B9-21A87D8DF107}
+	EndGlobalSection
+EndGlobal
