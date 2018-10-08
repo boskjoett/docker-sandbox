@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 FROM microsoft/dotnet:2.1-aspnetcore-runtime-nanoserver-1803
 WORKDIR /app
 
@@ -16,28 +15,3 @@ ENTRYPOINT ["dotnet", "CalculatorRestApi.dll"]
 # docker run -p 5000:80 -it --rm calcapi
 
 # docker inspect --format '{{.NetworkSettings.Networks.nat.IPAddress}}'
-=======
-#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
-#For more information, please see https://aka.ms/containercompat
-
-FROM microsoft/dotnet:2.1-aspnetcore-runtime-nanoserver-1803 AS base
-WORKDIR /app
-EXPOSE 65473
-EXPOSE 44315
-
-FROM microsoft/dotnet:2.1-sdk-nanoserver-1803 AS build
-WORKDIR /src
-COPY ["CalculatorRestApi/CalculatorRestApi.csproj", "CalculatorRestApi/"]
-RUN dotnet restore "CalculatorRestApi/CalculatorRestApi.csproj"
-COPY . .
-WORKDIR "/src/CalculatorRestApi"
-RUN dotnet build "CalculatorRestApi.csproj" -c Release -o /app
-
-FROM build AS publish
-RUN dotnet publish "CalculatorRestApi.csproj" -c Release -o /app
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "CalculatorRestApi.dll"]
->>>>>>> 8e77056972b36e8100d6f40816b099be3e60c50d
