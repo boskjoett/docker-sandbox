@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace CalculatorRestApi.Controllers
 {
@@ -10,6 +7,13 @@ namespace CalculatorRestApi.Controllers
     [ApiController]
     public class CalculatorController : ControllerBase
     {
+        private readonly ILogger _logger;
+
+        public CalculatorController(ILogger<CalculatorController> logger)
+        {
+            _logger = logger;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<string> Get()
@@ -18,16 +22,11 @@ namespace CalculatorRestApi.Controllers
         }
 
         // GET api/square/5
-        [HttpGet("square/{id}")]
-        public ActionResult<int> GetSquare(int id)
+        [HttpGet("square/{n}")]
+        public ActionResult<int> GetSquare(int n)
         {
-            return id*id;
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
+            _logger.LogInformation($"Returning the square of {n}");
+            return n*n;
         }
     }
 }
