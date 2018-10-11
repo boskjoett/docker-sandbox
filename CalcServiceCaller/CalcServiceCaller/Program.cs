@@ -17,6 +17,10 @@ namespace CalcServiceCaller
         {
             bool repeat = true;
 
+            Console.WriteLine("Reading from database DockerDb in container called demodb");
+            Database db = new Database();
+            db.ReadMessages();
+
             Console.WriteLine("Calling Calculator web service at URL http://calcapi/api/Calculator");
 
             while (repeat)
