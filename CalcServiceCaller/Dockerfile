@@ -10,4 +10,4 @@ ENTRYPOINT ["dotnet", "CalcServiceCaller.dll"]
 # docker build -t calcclient .
 
 # Run the image in a container with this command
-# docker run -it --rm calcclient
+# docker run -it --name calcclient --rm calcclient

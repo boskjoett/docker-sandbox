@@ -12,6 +12,6 @@ ENTRYPOINT ["dotnet", "CalculatorRestApi.dll"]
 # docker build -t calcapi .
 
 # Run the image in a container with this command
-# docker run -p 5000:80 -it --rm calcapi
+# docker run -p 5000:80 -it --name calcapi --rm calcapi
 
 # docker inspect --format '{{.NetworkSettings.Networks.nat.IPAddress}}'
