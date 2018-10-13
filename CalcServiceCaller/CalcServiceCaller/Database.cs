@@ -8,7 +8,7 @@ namespace CalcServiceCaller
         public void ReadMessages()
         {
             string connectionString = "Server=tcp:demodb,1433;Database=DockerDb;User Id=sa;Password=ZylincHello2015;";
-            Console.WriteLine("Connection string: " + connectionString);
+            Console.WriteLine("Database connection string: " + connectionString);
 
             using (var connection = new SqlConnection(connectionString))
             {
