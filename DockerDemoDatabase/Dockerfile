@@ -13,22 +13,22 @@ RUN mkdir C:/DbFiles
 
 # Copy database files to image
 COPY DockerDb.mdf C:/DbFiles/
-COPY DockerDb_log.ldf C:/DbFiles/
+COPY DockerDb.ldf C:/DbFiles/
 
 # Set the SQL instance's System Administrator password (must be a strong password)
-ENV SA_PASSWORD=password
+ENV SA_PASSWORD=ZylincHello2015
 
 # Accept the SQL Server licence agreement
 ENV ACCEPT_EULA=Y
 
 # Attach database 
-ENV attach_dbs='[{"dbName":"DockerDb","dbFiles":["C:\\DbFiles\\DockerDb.mdf","C:\\DbFiles\\DockerDb_log.ldf"]}]'
+ENV attach_dbs='[{"dbName":"DockerDb","dbFiles":["C:\\DbFiles\\DockerDb.mdf","C:\\DbFiles\\DockerDb.ldf"]}]'
 
 # Run this command in a command prompt window to build the image:
 # docker build -t demodb .
 
 # Use this command to run the image in a container:
-# docker run -d -p 1433:1433 -e sa_password=ZylincHello2015 --name demodbcontainer demodb
+# docker run -d -p 1433:1433 --name demodbc demodb
 
 # Show IP address of container:
 # docker inspect --format '{{.NetworkSettings.Networks.nat.IPAddress}}' demodbcontainer
