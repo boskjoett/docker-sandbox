@@ -1,9 +1,9 @@
 # This Dockerfile shows how to create a MS SQL Server Express Docker image
-# containing a database that is loaded from its data files (.mdf and .log).
+# containing a database that is loaded from its data files (.mdf and .ldf).
 # MS SQL Server Express database files are usually placed in this folder:
 # C:\Program Files\Microsoft SQL Server\MSSQL14.SQLEXPRESS\MSSQL\DATA
 # You need to detach the database in MS SQL Server Management Studio
-# before you can copy the .mdf and .log files.
+# before you can copy the .mdf and .ldf files.
 # This Dockerfile is made for Docker for Windows.
 
 FROM microsoft/mssql-server-windows-express
