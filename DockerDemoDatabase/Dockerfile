@@ -13,7 +13,7 @@ RUN mkdir C:/DbFiles
 
 # Copy database files to image
 COPY DockerDb.mdf C:/DbFiles/
-COPY DockerDb.ldf C:/DbFiles/
+COPY DockerDb_log.ldf C:/DbFiles/
 
 # Set the SQL instance's System Administrator password (must be a strong password)
 ENV SA_PASSWORD=ZylincHello2015
@@ -22,7 +22,7 @@ ENV SA_PASSWORD=ZylincHello2015
 ENV ACCEPT_EULA=Y
 
 # Attach database 
-ENV attach_dbs='[{"dbName":"DockerDb","dbFiles":["C:\\DbFiles\\DockerDb.mdf","C:\\DbFiles\\DockerDb.ldf"]}]'
+ENV attach_dbs='[{"dbName":"DockerDb","dbFiles":["C:\\DbFiles\\DockerDb.mdf","C:\\DbFiles\\DockerDb_log.ldf"]}]'
 
 # Run this command in a command prompt window to build the image:
 # docker build -t demodb .
