@@ -16,12 +16,17 @@ namespace CalcServiceCaller
         static void Main(string[] args)
         {
             bool repeat = true;
+            string connectionString = "Server=tcp:demodb,1433;Database=DockerDb;User Id=sa;Password=ZylincHello2015;";
+            Console.WriteLine("Database connection string: " + connectionString);
+            Database db = new Database(connectionString);
 
-            Console.WriteLine("Reading from database DockerDb in container called demodb");
-            Database db = new Database();
-            db.ReadMessages();
+            Console.WriteLine("\nReading latest 10 rows from table_1 in database DockerDb in container called demodb");
+            db.ReadTable1Messages(10);
 
-            Console.WriteLine("Calling Calculator web service at URL http://calcapi/api/Calculator");
+            Console.WriteLine("\nReading from table_2 in database DockerDb in container called demodb");
+            db.ReadTable2Messages();
+
+            Console.WriteLine("\nCalling Calculator web service at URL http://calcapi/api/Calculator");
 
             while (repeat)
             {
@@ -31,7 +36,10 @@ namespace CalcServiceCaller
                     if (result < 0)
                         break;
 
-                    Console.WriteLine($"The square of {n} = {result}");
+                    string message = $"The square of {n} = {result}";
+                    Console.WriteLine(message);
+
+                    db.InsertTable1Message(DateTime.Now, message);
 
                     Thread.Sleep(1000);
                 }
