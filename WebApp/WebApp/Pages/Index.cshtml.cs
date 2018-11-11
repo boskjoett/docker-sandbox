@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApp.Repository;
 
@@ -20,7 +21,7 @@ namespace WebApp.Pages
 
         public void OnGet()
         {
-            Hostname = Environment.GetEnvironmentVariable("HOSTNAME");
+            Hostname = Dns.GetHostName();
             CurrentTime = DateTime.Now.ToString("dd-mm-yyyy hh:mm:ss");
             
             Counter = _repository.GetCounter();
