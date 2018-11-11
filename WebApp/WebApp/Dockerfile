@@ -5,6 +5,8 @@ WORKDIR /app
 # Remember to run this command first: dotnet publish -c release
 COPY WebApp/bin/Release/netcoreapp2.1/publish/ ./
 
+EXPOSE 80
+
 ENTRYPOINT ["dotnet", "WebApp.dll"]
 
 # Run this command in a command prompt window to build the image:
