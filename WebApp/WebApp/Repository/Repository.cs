@@ -34,6 +34,15 @@ namespace WebApp.Repository
             return 0;
         }
 
+        public void IncrementCounter()
+        {
+            if (_redis != null)
+            {
+                IDatabase db = _redis.GetDatabase();
+                db.StringIncrement("counter");
+            }
+        }
+
         public string GetMessage()
         {
             if (_redis != null)
@@ -43,6 +52,15 @@ namespace WebApp.Repository
             }
 
             return string.Empty;
+        }
+
+        public void SetMessage(string message)
+        {
+            if (_redis != null)
+            {
+                IDatabase db = _redis.GetDatabase();
+                db.StringSet("message", message);
+            }
         }
     }
 }

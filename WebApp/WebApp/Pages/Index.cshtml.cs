@@ -25,6 +25,8 @@ namespace WebApp.Pages
             
             Counter = _repository.GetCounter();
             Message = _repository.GetMessage();
+
+            _repository.IncrementCounter();
         }
     }
 }
